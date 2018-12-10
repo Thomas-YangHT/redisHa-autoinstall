@@ -7,14 +7,16 @@
 ```
 # Redis 5.0 Cluster in CoreOS
 ---
-Node1  master1  slave2
-Node2  master2  slave3
-Node3  master3  slave1
+           VIP:6379  haproxy_stats:9091
+Node1  master1:6380  slave2:6381  phpredmin:8080 redisadmin:8000
+Node2  master2:6380  slave3:6381  phpredmin:8080 
+Node3  master3:6380  slave1:6381  phpredmin:8080
+
 ## PREPARE
 ---
-*  ha.tgz
-*  redis.tgz
-*  redismon.tgz
+*  [ha.tgz](https://pan.baidu.com/s/1Cj_BAiohKnZOi2MKCEX10g)
+*  [redis.tgz](https://pan.baidu.com/s/1EEToojubfhGChvH8suILWg)
+*  [redismon.tgz](https://pan.baidu.com/s/1GkxIaTGcnQlUuHtO6VeQmw)
 
 ## CONFIG
 ---
