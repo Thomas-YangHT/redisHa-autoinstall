@@ -1,10 +1,4 @@
-```
-  _       _                          __  __                 
- | |     (_)  _ __    _   _  __  __ |  \/  |   __ _   _ __  
- | |     | | | '_ \  | | | | \ \/ / | |\/| |  / _` | | '_ \ 
- | |___  | | | | | | | |_| |  >  <  | |  | | | (_| | | | | |
- |_____| |_| |_| |_|  \__,_| /_/\_\ |_|  |_|  \__,_| |_| |_|
-```
+
 # Redis 5.0 Cluster in CoreOS
 ---
                  VIP:6379  haproxy_stats:9091                                   
@@ -72,7 +66,7 @@ OPTIONS:
         addSlave       :add slave to master
         redisAdmin     :install phpredisadmin on node1
         phpRedmin      :install phpredmin on all nodes
-        reaireRedis    :fix aof file & restart failed redis
+        repaireRedis   :fix aof file & restart failed redis
         all            :install all components.
         reboot         :reboot all nodes in CEPH cluster.
 ```
@@ -82,5 +76,11 @@ OPTIONS:
 * [linux command HELP,try input some cmd, such as lsof]
 <img src="https://github.com/Thomas-YangHT/ceph-autoinstall/raw/master/pics/linuxman.png" width="300">
 * [Linux命令用法速查公众号，如：输入ls，返回用法链接，可查500+命令用法]
-
+```
+  _       _                          __  __                 
+ | |     (_)  _ __    _   _  __  __ |  \/  |   __ _   _ __  
+ | |     | | | '_ \  | | | | \ \/ / | |\/| |  / _` | | '_ \ 
+ | |___  | | | | | | | |_| |  >  <  | |  | | | (_| | | | | |
+ |_____| |_| |_| |_|  \__,_| /_/\_\ |_|  |_|  \__,_| |_| |_|
+```
 
