@@ -1,0 +1,78 @@
+source ./CONFIG
+
+#ha prepare
+func_ha_prepare(){
+    fab -H $NODES -f fab_redis.py prepare_ha -u core -P --colorize-errors
+}
+
+#keepalived
+func_keepalived(){
+    fab -H $NODES -f fab_redis.py keepalived -u core -P --colorize-errors
+}
+
+#haproxy
+func_haproxy(){
+    fab -H $NODES -f fab_redis.py haproxy -u core -P --colorize-errors
+}
+
+func_prepare(){
+    fab -H $NODES -f fab_redis.py prepare   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_prepareMon(){
+    fab -H $NODES -f fab_redis.py prepareMon   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_redis(){
+    fab -H $NODES -f fab_redis.py redis   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_redisMeet(){
+    fab -H $NODE1_IP -f fab_redis.py redisMeet   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_addSlots(){
+    fab -H $NODE1_IP -f fab_redis.py addSlots   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_addSlave(){
+    fab -H $NODE1_IP -f fab_redis.py addSlave   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_redisAdmin(){
+    fab -H $NODE1_IP -f fab_redis.py redisAdmin   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_phpRedmin(){
+    fab -H $NODES -f fab_redis.py phpRedmin   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_repaireRedis(){
+    fab -H $NODES -f fab_redis.py repaireRedis   -u $REMOTE_USER  --colorize-errors
+}
+
+func_nodeInfo(){
+    fab -H $NODE1_IP -f fab_redis.py nodeInfo   -u $REMOTE_USER -P --colorize-errors|tee nodeInfo
+}
+
+func_reset(){
+    fab -H $NODES -f fab_redis.py reset -u $REMOTE_USER -P --colorize-errors
+}
+
+func_status(){
+    fab -H $VIP_IP -f fab_redis.py status -u $REMOTE_USER --colorize-errors|tee finish
+    sh svc-index.sh
+    str="\n"`cat README.md |head -7|tail -n +2|sed 's/#/ /g'`
+    str+="\n"`cat finish |grep -vi warning|awk -F'out:' '{print $2}'|grep -vP "^$| $"`
+    echo -e "\033[45;42m $str \033[0m"
+}
+
+func_start(){
+    fab -H $NODES -f fab_redis.py start -u $REMOTE_USER -P --colorize-errors
+    fab -H $NODE1_IP -f fab_redis.py redisAdmin   -u $REMOTE_USER -P --colorize-errors
+}
+
+func_reboot(){
+    fab -H $NODES -f fab_redis.py reboot -u $REMOTE_USER -P --colorize-errors
+}
+	

@@ -1,0 +1,55 @@
+[192.168.253.40] Executing task 'status'
+[192.168.253.40] run: cd redis;sh redis-nodeinfo.sh
+[192.168.253.40] out: [38;5;75mContainer Linux by CoreOS[39m stable (1855.4.0)
+[192.168.253.40] out: Linux node1 4.14.67-coreos #1 SMP Mon Sep 10 23:14:26 UTC 2018 x86_64 Intel Xeon E3-12xx v2 (Ivy Bridge, IBRS) GenuineIntel GNU/Linux
+[192.168.253.40] out: RedisClusterInfo:
+[192.168.253.40] out: -----------------
+[192.168.253.40] out: Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+[192.168.253.40] out: cluster_state:ok
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_slots_assigned:16384
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_slots_ok:16384
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_slots_pfail:0
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_slots_fail:0
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_known_nodes:6
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_size:3
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_current_epoch:6
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_my_epoch:1
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_stats_messages_ping_sent:8004
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_stats_messages_pong_sent:377
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_stats_messages_fail_sent:6
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_stats_messages_sent:8387
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_stats_messages_ping_received:377
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_stats_messages_pong_received:373
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_stats_messages_fail_received:2
+[192.168.253.40] out: 
+[192.168.253.40] out: cluster_stats_messages_received:752
+[192.168.253.40] out: 
+[192.168.253.40] out: \nRedisClusterNodes:
+[192.168.253.40] out: -----------------
+[192.168.253.40] out: Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+[192.168.253.40] out: 679b83d59d1d681350165b61f9b23104391a4080 172.17.0.1:6381@16381 master - 0 1544419172000 6 connected 5462-10922
+[192.168.253.40] out: 130fe015693eb46aa3fc1e5d1b32f2ff00a3d50d 172.17.0.3:6380@16380 myself,master - 0 1544419171000 1 connected 0-5461
+[192.168.253.40] out: b53ccf1adb16da52f99595b5b0f0f6177ab4b328 192.168.253.42:6380@16380 slave 679b83d59d1d681350165b61f9b23104391a4080 0 1544419172000 6 connected
+[192.168.253.40] out: afcb88926cf67ba7c6b6688990c6283257d79992 192.168.253.42:6381@16381 slave bb933ca2a6c4d40e0c4872a0a50a3572182a71f1 0 1544419173497 3 connected
+[192.168.253.40] out: bb933ca2a6c4d40e0c4872a0a50a3572182a71f1 192.168.253.43:6380@16380 master - 0 1544419172493 0 connected 10923-16383
+[192.168.253.40] out: 088ca3bee0c17a689eaa33b0e398df9ed3a2b683 192.168.253.43:6381@16381 slave 130fe015693eb46aa3fc1e5d1b32f2ff00a3d50d 0 1544419171491 5 connected
+[192.168.253.40] out: 
+
+
+Done.
+Disconnecting from 192.168.253.40... done.
