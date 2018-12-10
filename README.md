@@ -48,7 +48,7 @@ PJ=redis
 ```
 ## INSTALL
 ---
-** sh -x install.sh all **
+**sh -x install.sh all**
 
 ## more usage:
 ```
