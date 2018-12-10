@@ -1,12 +1,15 @@
 
 # Redis 5.0 Cluster in CoreOS
 ---
-                 VIP:6379  haproxy_stats:9091                                   
-   |Nodes    |master          |slave          |web manager       |web manager2   |               
-   |---------|:--------------:|--------------:|-----------------:|:--------------|
-   |Node1    |master1:6380    |slave2:6381    |phpredmin:8080    |redisadmin:8000|
-   |Node2    |master2:6380    |slave3:6381    |phpredmin:8080    |               |
-   |Node3    |master3:6380    |slave1:6381    |phpredmin:8080    |               |
+## 基本结构
+   ||前端 : VIP:6379  haproxy_stats:9091||
+   |------------|:--------------:|:--------------:|
+   |**Node1**            |**Node2**               |**Node3**            |       
+   |master1:6380 |master2:6380  |master3:6380  |   
+   |slave2:6381   |slave3:6381     |slave1:6381   |               
+   |phpredmin:8080    |phpredmin:8080    |phpredmin:8080 |
+   |redisadmin:8000|||
+  |分片slots(0-5461)| slots(5462-10922)| slots(10923-16383)|
 
 ## Download
 ---
@@ -46,6 +49,7 @@ PJ=redis
 `sh -x install.sh all`
 ## Check Result by browse svc-redis.html
 ---
+`sh install status`
 
 ## More Usage:
 ```
