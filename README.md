@@ -14,13 +14,14 @@
    |Node2    |master2:6380    |slave3:6381    |phpredmin:8080    |               |
    |Node3    |master3:6380    |slave1:6381    |phpredmin:8080    |               |
 
-## PREPARE
+## Download
 ---
 *  [ha.tgz](https://pan.baidu.com/s/1Cj_BAiohKnZOi2MKCEX10g)
 *  [redis.tgz](https://pan.baidu.com/s/1EEToojubfhGChvH8suILWg)
 *  [redismon.tgz](https://pan.baidu.com/s/1GkxIaTGcnQlUuHtO6VeQmw)
+*  git clone https://github.com/Thomas-YangHT/redisHa.git;cp *tgz redisHa; cd redisHa
 
-## CONFIG
+## vim CONFIG
 ---
 ```
 NODE1_NAME=node1
@@ -48,7 +49,7 @@ PJ=redis
 ```
 ## INSTALL
 ---
-**sh -x install.sh all**
+`sh -x install.sh all`
 
 ## more usage:
 ```
@@ -75,7 +76,8 @@ OPTIONS:
 ```
 -----
 ## weixin public accunt: [LinuxMan]
-![linux command HELP,try input some cmd, such as lsof]<img src="https://github.com/Thomas-YangHT/ceph-autoinstall/raw/master/pics/linuxman.png" width="500">
----
-![Linux命令用法速查公众号，如：输入ls，返回用法链接，可查500+命令用法](http://upload-images.jianshu.io/upload_images/12123313-cb461a3e8c2135b2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+[linux command HELP,try input some cmd, such as lsof][Linux命令用法速查公众号，如：输入ls，返回用法链接，可查500+命令用法]<img src="https://github.com/Thomas-YangHT/ceph-autoinstall/raw/master/pics/linuxman.png" width="300">
+
+
 
