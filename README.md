@@ -75,6 +75,7 @@ OPTIONS:
 ```
 -----
 ## weixin public accunt: [LinuxMan]
-
+* [linux command HELP,try input some cmd, such as lsof]
+<img src="https://github.com/Thomas-YangHT/ceph-autoinstall/raw/master/pics/linuxman.png" width="500">
 ![Linux命令用法速查公众号，如：输入ls，返回用法链接，可查500+命令用法](http://upload-images.jianshu.io/upload_images/12123313-cb461a3e8c2135b2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
