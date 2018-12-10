@@ -50,8 +50,10 @@ PJ=redis
 ## INSTALL
 ---
 `sh -x install.sh all`
+## Check Result by browse svc-redis.html
+---
 
-## more usage:
+## More Usage:
 ```
 usage: install.sh [OPTION]
 OPTIONS:
@@ -77,7 +79,8 @@ OPTIONS:
 -----
 ## weixin public accunt: [LinuxMan]
 
-[linux command HELP,try input some cmd, such as lsof][Linux命令用法速查公众号，如：输入ls，返回用法链接，可查500+命令用法]<img src="https://github.com/Thomas-YangHT/ceph-autoinstall/raw/master/pics/linuxman.png" width="300">
-
+* [linux command HELP,try input some cmd, such as lsof]
+<img src="https://github.com/Thomas-YangHT/ceph-autoinstall/raw/master/pics/linuxman.png" width="300">
+* [Linux命令用法速查公众号，如：输入ls，返回用法链接，可查500+命令用法]
 
 
