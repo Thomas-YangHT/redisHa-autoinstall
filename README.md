@@ -48,7 +48,7 @@ PJ=redis
 ---
 `sh -x install.sh all`
 * [see video](https://asciinema.org/a/WAxXfKq68ADvp1b8vRNXEWAJY)
-
+[![asciicast](https://asciinema.org/a/216290.svg)](https://asciinema.org/a/216290)
 
 ## Check Result by browse svc-redis.html
 ---
