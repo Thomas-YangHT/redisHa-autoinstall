@@ -47,6 +47,9 @@ PJ=redis
 ## INSTALL
 ---
 `sh -x install.sh all`
+* [see video](https://asciinema.org/a/WAxXfKq68ADvp1b8vRNXEWAJY)
+
+
 ## Check Result by browse svc-redis.html
 ---
 `sh install status`
