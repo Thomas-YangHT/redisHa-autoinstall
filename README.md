@@ -16,7 +16,7 @@
 *  [ha.tgz](https://pan.baidu.com/s/1Cj_BAiohKnZOi2MKCEX10g)
 *  [redis.tgz](https://pan.baidu.com/s/1EEToojubfhGChvH8suILWg)
 *  [redismon.tgz](https://pan.baidu.com/s/1GkxIaTGcnQlUuHtO6VeQmw)
-*  git clone https://github.com/Thomas-YangHT/redisHa.git;cp *tgz redisHa; cd redisHa
+*  git clone https://github.com/Thomas-YangHT/redisHa-autoinstall.git;cp *tgz redisHa-autoinstall; cd redisHa-autoinstall
 
 ## vim CONFIG
 ---
