@@ -53,6 +53,24 @@ PJ=redis
 ## Check Result by browse svc-redis.html
 ---
 `sh install status`
+![image](http://upload-images.jianshu.io/upload_images/12123313-ef9b3829ef5856ae?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+#### 注：
+- 如果有clock skew detect on xxx报警， 执行 
+```
+sh  cluster_cmd.sh  "sudo ntpdate <NTP SERVER IP>"
+```
+- 安装后会生成**svc-ceph.html**, 包含dashboard/grafana/prometheus等的页面链接，依次打开验证
+#### svc-ceph.html
+![](http://upload-images.jianshu.io/upload_images/12123313-1823460dabd0b4e8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+#### ceph dashboard
+![](http://upload-images.jianshu.io/upload_images/12123313-2b1c7297f27b95d7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+#### prometheus
+![](http://upload-images.jianshu.io/upload_images/12123313-9e3844eaea390433?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+#### **修改grafana的datasource prometheus IP为node1的IP**
+![](http://upload-images.jianshu.io/upload_images/12123313-a674991fbaf3d8af?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/12123313-cef605cf795d4977?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## More Usage:
 ```
