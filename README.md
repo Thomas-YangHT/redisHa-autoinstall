@@ -1,5 +1,6 @@
 
-# Redis 5.0 Cluster in CoreOS
+![](https://img.shields.io/badge/Dist-CoreOS-blue.svg)  ![](https://img.shields.io/badge/Redis-HA-brightgreen.svg)  ![](https://img.shields.io/badge/Proxy-IPVS-orange.svg)  ![](https://img.shields.io/badge/Haproxy-LB-yellow.svg) ![](https://img.shields.io/badge/Keepalived-HA-green.svg)
+# Auto Install Redis 5.0 Cluster in CoreOS
 ---
 ## 基本结构
    ||前端 : VIP:6379  haproxy_stats:9091||
@@ -11,14 +12,14 @@
    |redisadmin:8000|||
   |分片slots(0-5461)| slots(5462-10922)| slots(10923-16383)|
 
-## Download
+## Step 1: Download
 ---
 *  [ha.tgz](https://pan.baidu.com/s/1Cj_BAiohKnZOi2MKCEX10g)
 *  [redis.tgz](https://pan.baidu.com/s/1EEToojubfhGChvH8suILWg)
 *  [redismon.tgz](https://pan.baidu.com/s/1GkxIaTGcnQlUuHtO6VeQmw)
 *  git clone https://github.com/Thomas-YangHT/redisHa-autoinstall.git;cp *tgz redisHa-autoinstall; cd redisHa-autoinstall
 
-## vim CONFIG
+## Step 2: vim CONFIG
 ---
 ```
 NODE1_NAME=node1
@@ -44,13 +45,13 @@ DNS1=192.168.253.110
 DNS2=114.114.114.114
 PJ=redis
 ```
-## INSTALL
+## Step 3: INSTALL
 ---
 `sh -x install.sh all`
 * [see video](https://asciinema.org/a/WAxXfKq68ADvp1b8vRNXEWAJY)
 [![asciicast](https://asciinema.org/a/216290.svg)](https://asciinema.org/a/216290)
 
-## Check Result by browse svc-redis.html
+## Step 4: Check Result by browse svc-redis.html
 ---
 `sh install status`
 ![image](http://upload-images.jianshu.io/upload_images/12123313-ef9b3829ef5856ae?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
