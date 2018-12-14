@@ -49,7 +49,9 @@ PJ=redis
 ## INSTALL
 ---
 `sh -x install.sh all` **and waiting for a moment...**
+
 [see video](https://asciinema.org/a/WAxXfKq68ADvp1b8vRNXEWAJY)
+
 [![install video](https://upload-images.jianshu.io/upload_images/12123313-0b4d51ce26f3e8fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://asciinema.org/a/216290)
 
 ## Check STATUS
