@@ -1,6 +1,7 @@
 
 ![](https://img.shields.io/badge/Dist-CoreOS-blue.svg)  ![](https://img.shields.io/badge/Redis-HA-brightgreen.svg)  ![](https://img.shields.io/badge/Proxy-IPVS-orange.svg)  ![](https://img.shields.io/badge/Haproxy-LB-yellow.svg) ![](https://img.shields.io/badge/Keepalived-HA-green.svg)
-# Auto Install Redis 5.0 Cluster in CoreOS
+
+# Redis 5.0 Cluster in CoreOS
 ---
 ## 基本结构
    ||前端 : VIP:6379  haproxy_stats:9091||
@@ -12,14 +13,14 @@
    |redisadmin:8000|||
   |分片slots(0-5461)| slots(5462-10922)| slots(10923-16383)|
 
-## Step 1: Download
+## Download
 ---
 *  [ha.tgz](https://pan.baidu.com/s/1Cj_BAiohKnZOi2MKCEX10g)
 *  [redis.tgz](https://pan.baidu.com/s/1EEToojubfhGChvH8suILWg)
 *  [redismon.tgz](https://pan.baidu.com/s/1GkxIaTGcnQlUuHtO6VeQmw)
-*  git clone https://github.com/Thomas-YangHT/redisHa-autoinstall.git;cp *tgz redisHa-autoinstall; cd redisHa-autoinstall
+*  git clone https://github.com/Thomas-YangHT/redisHa.git;cp *tgz redisHa; cd redisHa
 
-## Step 2: vim CONFIG
+## vim CONFIG
 ---
 ```
 NODE1_NAME=node1
@@ -45,35 +46,28 @@ DNS1=192.168.253.110
 DNS2=114.114.114.114
 PJ=redis
 ```
-## Step 3: INSTALL
+## INSTALL
 ---
-`sh -x install.sh all`
-* [see video](https://asciinema.org/a/WAxXfKq68ADvp1b8vRNXEWAJY)
-[![asciicast](https://asciinema.org/a/216290.svg)](https://asciinema.org/a/216290)
+`sh -x install.sh all` **and waiting for a moment...**
+[see video](https://asciinema.org/a/WAxXfKq68ADvp1b8vRNXEWAJY)
+[![install video](https://upload-images.jianshu.io/upload_images/12123313-0b4d51ce26f3e8fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://asciinema.org/a/216290)
 
-## Step 4: Check Result by browse svc-redis.html
+## Check STATUS
+`sh install.sh status`  **and see all nodes connected**
+![cluster info & nodes status](https://upload-images.jianshu.io/upload_images/12123313-8a41850563e73c12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## Check Result by browse svc-redis.html
 ---
-`sh install status`
-![image](http://upload-images.jianshu.io/upload_images/12123313-ef9b3829ef5856ae?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![svc-redis.html](https://upload-images.jianshu.io/upload_images/12123313-f0502bda3bb64269.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#### 注：
-- 如果有clock skew detect on xxx报警， 执行 
-```
-sh  cluster_cmd.sh  "sudo ntpdate <NTP SERVER IP>"
-```
-- 安装后会生成**svc-ceph.html**, 包含dashboard/grafana/prometheus等的页面链接，依次打开验证
-#### svc-ceph.html
-![](http://upload-images.jianshu.io/upload_images/12123313-1823460dabd0b4e8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-#### ceph dashboard
-![](http://upload-images.jianshu.io/upload_images/12123313-2b1c7297f27b95d7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-#### prometheus
-![](http://upload-images.jianshu.io/upload_images/12123313-9e3844eaea390433?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-#### **修改grafana的datasource prometheus IP为node1的IP**
-![](http://upload-images.jianshu.io/upload_images/12123313-a674991fbaf3d8af?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![](http://upload-images.jianshu.io/upload_images/12123313-cef605cf795d4977?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![phpredmin带统计和命令终端](https://upload-images.jianshu.io/upload_images/12123313-33d7d664aba48be6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-## More Usage:
+![RedisAdmin支持多主机管理](https://upload-images.jianshu.io/upload_images/12123313-4bafdaab4f9fe7fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![haproxy_stats](https://upload-images.jianshu.io/upload_images/12123313-b7b1a57c6c1fdeef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## More about install.sh:
 ```
 usage: install.sh [OPTION]
 OPTIONS:
@@ -96,20 +90,22 @@ OPTIONS:
         all            :install all components.
         reboot         :reboot all nodes in CEPH cluster.
 ```
+## Q&A
+* 集群模式的限制
+  * Redis集群模式只支持一个库，即db0
+  * 分片存储，Master1(0-5461slots) Master2(5462-10922) Master3(10923-16383)，keys *将只返回连接结点的KEY
+  * redis-cli -c 需要加-c 选项，其它常用选项：-p \$MasterPort -a \$requirepass -h \$node[1-3]
+  * 可通过VIP：VPORT，或任一NODEIP：MasterPort访问集群
+  * 集群通讯是通过通讯端口（数据端口+10000）互连
+* 参考
+  *  [Redis集群规范](https://blog.csdn.net/u010258235/article/details/50060127)
+  * [WEB管理：phpredisadmin](https://github.com/erikdubbelboer/phpRedisAdmin)
+  * [WEB管理：phpredmin](https://github.com/sasanrose/phpredmin)
+  * [redis常用命令](https://www.cnblogs.com/kongzhongqijing/p/6867960.html)
 -----
-## weixin public accunt: [LinuxMan]
+## CMD Search公众号：[LinuxMan]
 
-* [linux command HELP,try input some cmd, such as lsof]
+![Linux命令用法速查公众号，如：输入ls，返回用法链接，含500+命令用法](https://upload-images.jianshu.io/upload_images/12123313-21545308f7327a9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-  <img src="https://github.com/Thomas-YangHT/ceph-autoinstall/raw/master/pics/linuxman.png" width="400">
-                           
-* [Linux命令用法速查公众号，如：输入ls，返回用法链接，可查500+命令用法]
 
-```
-  _       _                          __  __                 
- | |     (_)  _ __    _   _  __  __ |  \/  |   __ _   _ __  
- | |     | | | '_ \  | | | | \ \/ / | |\/| |  / _` | | '_ \ 
- | |___  | | | | | | | |_| |  >  <  | |  | | | (_| | | | | |
- |_____| |_| |_| |_|  \__,_| /_/\_\ |_|  |_|  \__,_| |_| |_|
-```
 
